@@ -1,0 +1,8 @@
+input will be in the form of:
+./a.out "..X...X.." "....X...." "..X..XX.." "..X...X.." ".X...X..." "...X....." ".XX...X.." "...X....." "..X....X."
+
+X is a number from 1-9.
+
+input may or may not be valid.
+
+Sudoku grid will first be generated from input, printed and then solving process will start, answer will be printed.
