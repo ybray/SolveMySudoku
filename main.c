@@ -47,12 +47,12 @@ int	main(int argc, char **argv)
 			printf("valid inputs\n");
 			for (i = 1; i < 10; i++)
 			{
-				for (j = 1; j < 10; j++)
+				for (j = 0; j < 10; j++)
 				{
 					if (argv[i][j] == '.')
 						grid[i][j] = '0';
 					else
-						grid[i][j] = (argv[i][j] + '0');
+						grid[i][j] = (argv[i][j]);
 					printf("%c ", grid[i][j]);
 				}
 				printf("\n");
