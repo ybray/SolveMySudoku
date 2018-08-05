@@ -33,18 +33,23 @@ int	main(int argc, char **argv)
 	v = 0;
 	if (argc == 10)
 	{
-		printf("10 arguments\n");
 
-//		check if arguments are valid.
+/*
+** Checks if arguments are valid.
+** v is validity, if != 9; input is false
+*/
 		for (i = 1; i < 10; i++)
 		{
 			v = v + valid_input(argv[i]);
-//			printf("v = %d\n", v);
 		}
 
 		if (v == 9)
 		{
-			printf("valid inputs\n");
+
+		/* 
+		** Prints out the grid if input is valid (1-9 or '.') 
+		*/
+			printf("\nStarting point:\n\n");
 			for (i = 1; i < 10; i++)
 			{
 				for (j = 0; j < 10; j++)
@@ -57,10 +62,30 @@ int	main(int argc, char **argv)
 				}
 				printf("\n");
 			}
-			
-//			print_grid();
+			printf("\n");
+		/* 
+		** Checks if numbers are valid within row 
+		*/	
+			for (i = 0; i < 9; i++)
+			{
+				for (j = 0; j < 9; j++)
+				{
+					if (grid[i][j] == 0)
+				}
+			}
+		/*
+		** Checks if numbers are valid within column 
+		*/
+
+		/* 
+		** Checks if numbers are valid within small square	
+		*/
+
 		}
 	}
+/* 
+** Wrong input 
+*/
 	else
 		printf("usage: ./a.out \"arguments\"x9; where arguments are either 1-9 or \'.\'\n");
 
