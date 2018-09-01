@@ -20,6 +20,21 @@ int	valid_input(char *str)
 	return (-1);
 }
 
+int	isavailable(char grid[][9], int row, int col, char num)
+{
+	int rowStart = (row/3) * 3;
+	int colStart = (col/3) * 3;
+	int i, j;
+
+	for (i = 0; i < 9; ++i)
+	{
+		if (grid[row][i] == num) return (0);
+		if (grid[i][col] == num) return (0);
+		if (grid[rowStart + (i%3)][colStart + (i/3)] == num) return (0);
+	}
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
 	int i;
@@ -46,13 +61,13 @@ int	main(int argc, char **argv)
 		if (v == 9)
 		{
 
-		/* 
-		** Prints out the grid if input is valid (1-9 or '.') 
-		*/
+		
+		//Prints out the grid if input is valid (1-9 or '.') 
+		
 			printf("\nStarting point:\n\n");
 			for (i = 1; i < 10; i++)
 			{
-				for (j = 0; j < 10; j++)
+				for (j = 0; j < 9; j++)
 				{
 					if (argv[i][j] == '.')
 						grid[i][j] = '0';
@@ -63,34 +78,50 @@ int	main(int argc, char **argv)
 				printf("\n");
 			}
 			printf("\n");
-		/* 
-		** Checks if numbers are valid within row 
-		*/	
-			for (i = 0; i < 9; i++)
-			{
-				for (j = 0; j < 9; j++)
-				{
-					if (grid[i][j] == 0)
-				}
-			}
-		/*
-		** Checks if numbers are valid within column 
-		*/
 
-		/* 
-		** Checks if numbers are valid within small square	
-		*/
+			//start changing sudoku
+			
+		for (i = 0; i < 9; ++i)
+			{
+			}
 
 		}
 	}
-/* 
-** Wrong input 
-*/
 	else
 		printf("usage: ./a.out \"arguments\"x9; where arguments are either 1-9 or \'.\'\n");
 
 	return (0);
 }
+
+int	fillsudoku(char grid[][9], int row, int col)
+{
+	int i;
+	if (row < 9 && col < 9)
+		if (grid[row][col] != '0')
+		{
+			if ( (col + 1) < 9)
+				return (fillsudoku(grid, row, col+1));
+			else if ( (row + 1) < 9)
+				return (fillsudoku(grid, row+1, 0));
+			else 
+				return (1);
+		}
+		else
+		{
+		}
+
+
+	if (isavailable(grid, row, col, i+1))
+		grid[row][col] = i+1;
+	
+			
+
+}
+
+/* 
+** Wrong input 
+*/
+
 
 // example input
 // ./a.out "1........" "2........" "3........" "4........" "5........" "6........" "7........" "8........" "9...55..."	
